@@ -1,0 +1,61 @@
+﻿EMA dApp対応方針（仮）
+
+位置付け
+これは新EMAのデプロイ前設計資料であり、監査前・未デプロイの暫定案です。
+
+旧EMA参照コントラクト：
+0x61b397ade3ed9c1511abff20a3a4701a3a52ecdc
+
+旧コントラクトを書き換えるものではありません。新規デプロイ時には別のコントラクトアドレスが発行されます。
+
+EMA固有の重要情報
+- ネットワーク：Arbitrum One
+- Token Name：EMADATA
+- Symbol：EMA
+- 初期発行枚数：777,000,000 EMA
+- Decimals：18
+- TAX：0％
+- リワード／Reflection：なし
+- 追加Mint：なし
+
+基本構造
+CAWおよびCAWELON案と同様に、EMAのトークン本体とdAppを分離する。
+
+1. EMAトークン本体
+- Arbitrum One ERC-20
+- 初期発行777,000,000 EMA
+- TAX 0％
+- リワード／Reflectionなし
+- 追加Mintなし
+- 自己バーンのみ
+- EIP-2612 Permit対応
+- Owner・管理者・Pause・Proxyなし
+
+2. dApp用プロトコルコントラクト
+- EMAをIERC20として接続する
+- トークン移動にはOpenZeppelinのSafeERC20を使用する
+- Permit利用時はIERC20Permitで署名承認を受ける
+- dApp固有の機能、制限、更新処理はこの層へ置く
+
+3. フロントエンド
+- Arbitrum One対応ウォレット接続
+- EMA残高表示
+- Permit署名または通常のApprove
+- dApp用コントラクトの操作
+- GitHub上のソース、監査状況、デプロイ先を明示する
+
+デプロイ前に確定する事項
+- 初期発行分の受取ウォレット
+- 旧EMA保有者への移行・配布基準
+- 固定制限をトークン本体へ入れるか、dApp側で扱うか
+- オンチェーン投票・委任にERC20Votesを採用するか
+- 第三者監査とテストネット検証の方法
+
+未採用
+- トークン本体へのdApp固有ロジックの埋め込み
+- 売買TAX
+- 保有者への自動リワード
+- Reflection
+- DEXペア判定
+- マーケティングウォレットへの自動分配
+- 後発Mint
