@@ -1,10 +1,14 @@
 # EMA CORE (EMA)
 
+
 **Status: deployed on Base Mainnet; source verified as an exact match on Blockscout. Not independently audited.**
+
 
 EMA CORE is a fixed-supply, zero-tax ERC-20 core token developed by AssetDeploy LLC for the 0628DAO ecosystem and future autonomous AI-agent use.
 
+
 ## Mainnet deployment
+
 
 | Item | Value |
 |---|---|
@@ -18,7 +22,23 @@ EMA CORE is a fixed-supply, zero-tax ERC-20 core token developed by AssetDeploy 
 | Source verification | Blockscout exact match |
 | Project page | [assetdeploy.xyz/#emacore](https://assetdeploy.xyz/#emacore) |
 
+
+## Aerodrome liquidity
+
+| Item | Value |
+|---|---|
+| DEX | Aerodrome Finance |
+| Pool type | Volatile (vAMM) |
+| Pair | EMA/USDC |
+| Pool | [`0x8c0689EE10CF35A76149BA37808b5758C5826688`](https://base.blockscout.com/address/0x8c0689EE10CF35A76149BA37808b5758C5826688) |
+| Initial liquidity | 7,770,000 EMA + 100 USDC |
+| Add-liquidity transaction | [`0xb25899bd34b947786bc477705dc0342e5233a01ce42749291723961fec10edb0`](https://base.blockscout.com/tx/0xb25899bd34b947786bc477705dc0342e5233a01ce42749291723961fec10edb0) |
+| USDC | [Canonical Base USDC](https://base.blockscout.com/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913) |
+
+This pool is external to the EMA token contract. Pool balances and price may change through trading and later liquidity changes.
+
 ## Confirmed token specification
+
 
 | Item | Value |
 |---|---|
@@ -32,29 +52,40 @@ EMA CORE is a fixed-supply, zero-tax ERC-20 core token developed by AssetDeploy 
 | Permit | EIP-2612, domain name `EMA CORE` |
 | Owner / admin / pause / upgrade / proxy | None |
 
+
 The entire supply was minted once to the initial-holder address. The contract contains no vesting, automatic distribution, price support, liquidity, blacklist, pause, upgrade, or administrator mint mechanism. Any liquidity position is external to the token contract.
+
 
 ## Base Sepolia reference
 
+
 The same implementation was deployed and exact-match verified on Base Sepolia before mainnet release:
+
 
 - Contract: [`0x20C3bb2548a1CE188229A6128dF0e9612259185E`](https://base-sepolia.blockscout.com/address/0x20C3bb2548a1CE188229A6128dF0e9612259185E?tab=contract)
 - Network: Base Sepolia (chain ID 84532)
 
+
 ## Provenance and scope
+
 
 Base source: [0628DAO/DAT](https://github.com/0628DAO/DAT/tree/0aa811b9c7607d7af6129a943cca8be72974a59b), `contracts/DATCore.sol`. Token logic is unchanged except for the contract/error names, token name, symbol, permit domain, and initial supply. DATCORE's MIT license and pinned OpenZeppelin/compiler dependencies are retained.
 
+
 Prior Draft documentation is archived at [docs/legacy-draft-readme.md](docs/legacy-draft-readme.md). Existing token deployments are not migrated or converted by this contract.
+
 
 ## Local checks
 
+
 Use Node.js 22 or newer:
+
 
 ```sh
 npm ci
 npm run check
 ```
+
 
 The test suite covers metadata, supply, allocation, transfers, allowances, holder burns, authorized and unauthorized `burnFrom`, EIP-2612 permits, replay and expiry rejection, EIP-712 domain data, and the absence of privileged functions.
 
