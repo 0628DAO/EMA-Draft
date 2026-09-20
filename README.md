@@ -1,74 +1,63 @@
-# EMADATA (EMA) — Provisional Relaunch Draft
+# EMA CORE (EMA)
 
-**Status:** Draft / Not Audited / Not Deployed  
-**Intended Network:** Arbitrum One  
-**Maintainer:** 0628DAO
+**Status: deployed on Base Mainnet; source verified as an exact match on Blockscout. Not independently audited.**
 
-This repository contains the provisional public materials for a future EMADATA (EMA) relaunch, including an ERC-20 smart contract draft and a separated dApp architecture. EMA is being designed as the foundational token for the 0628BET Prediction Layer within the 0628DAO ecosystem.
+EMA CORE is a fixed-supply, zero-tax ERC-20 core token developed by AssetDeploy LLC for the 0628DAO ecosystem and future autonomous AI-agent use.
 
-The repository is public to make the pre-deployment design and validation process transparent. No new official EMA contract has been deployed from this repository. All code currently published here is an unaudited draft.
+## Mainnet deployment
 
-## Current Provisional Specifications
-
-| Item | Specification |
+| Item | Value |
 |---|---|
-| Token Name | EMADATA |
+| Network | Base Mainnet (chain ID 8453) |
+| Contract | [`0xBaE0933d509b83B7bbAb3AaB9feD413504382a76`](https://base.blockscout.com/address/0xBaE0933d509b83B7bbAb3AaB9feD413504382a76?tab=contract) |
+| Deployment transaction | [`0x781f30ca91c974e60853d9dd1b8e71700bfd835eddffbd2b7222f0846f1208aa`](https://base.blockscout.com/tx/0x781f30ca91c974e60853d9dd1b8e71700bfd835eddffbd2b7222f0846f1208aa) |
+| Initial holder | `0xfbE494B465efe6d0Daff80dC715302d0Fa0Ac5d9` |
+| Initial supply | 777,000,000 EMA |
+| Compiler | Solidity 0.8.34 |
+| Optimizer / EVM | Disabled / default |
+| Source verification | Blockscout exact match |
+| Project page | [assetdeploy.xyz/#emacore](https://assetdeploy.xyz/#emacore) |
+
+## Confirmed token specification
+
+| Item | Value |
+|---|---|
+| Contract | `EMACore` |
+| Name | EMA CORE |
 | Symbol | EMA |
-| Network | Arbitrum One |
-| Standard | ERC-20 |
-| Initial Supply | 777,000,000 EMA |
 | Decimals | 18 |
-| Transfer / Buy / Sell Tax | 0% |
-| Rewards / Reflection | None |
-| Additional Minting | None |
-| Burn | Self-burn by the token holder only |
-| Permit | EIP-2612 |
-| Owner / Admin / Pause / Upgrade / Proxy | None |
+| Transfer / buy / sell tax | 0% |
+| Additional minting | None |
+| Burn | Holder burn and allowance-based `burnFrom`, as in DATCORE |
+| Permit | EIP-2612, domain name `EMA CORE` |
+| Owner / admin / pause / upgrade / proxy | None |
 
-## Relationship to the Existing EMA Contract
+The entire supply was minted once to the initial-holder address. The contract contains no vesting, automatic distribution, price support, liquidity, blacklist, pause, upgrade, or administrator mint mechanism. Any liquidity position is external to the token contract.
 
-Existing EMA reference contract:
+## Base Sepolia reference
 
-`0x61b397ade3ed9c1511abff20a3a4701a3a52ecdc`
+The same implementation was deployed and exact-match verified on Base Sepolia before mainnet release:
 
-The code in this repository does not modify the existing contract. Any future deployment from this draft will receive a different contract address. Migration and distribution criteria for existing EMA holders have not yet been finalized.
+- Contract: [`0x20C3bb2548a1CE188229A6128dF0e9612259185E`](https://base-sepolia.blockscout.com/address/0x20C3bb2548a1CE188229A6128dF0e9612259185E?tab=contract)
+- Network: Base Sepolia (chain ID 84532)
 
-## Position within 0628DAO
+## Provenance and scope
 
-0628DAO is not a token name. It is a governance concept that combines multiple specialized intelligences with final human responsibility. EMA is one of the systems governed under that concept; EMA is not 0628DAO itself.
+Base source: [0628DAO/DAT](https://github.com/0628DAO/DAT/tree/0aa811b9c7607d7af6129a943cca8be72974a59b), `contracts/DATCore.sol`. Token logic is unchanged except for the contract/error names, token name, symbol, permit domain, and initial supply. DATCORE's MIT license and pinned OpenZeppelin/compiler dependencies are retained.
 
-This repository contains only the new EMA base-token draft and its dApp integration principles. The 0628BET application, prediction-market logic, frontend, and governance execution mechanisms will be designed, tested, and published as separate contracts and development stages.
+Prior Draft documentation is archived at [docs/legacy-draft-readme.md](docs/legacy-draft-readme.md). Existing token deployments are not migrated or converted by this contract.
 
-## Design Principles
+## Local checks
 
-- Keep the base token implementation small and standards-based
-- Place dApp-specific functions in separate protocol contracts
-- Connect through `IERC20` and `IERC20Permit`
-- Use OpenZeppelin `SafeERC20` for token transfers
-- Do not embed taxes, reflection, automatic distribution, or DEX-pair detection in the base token
-- Do not provide any post-deployment minting path
+Use Node.js 22 or newer:
 
-## Repository Contents
+```sh
+npm ci
+npm run check
+```
 
-- `EMA_Draft.sol` — Provisional ERC-20 smart contract
-- `EMA_dApp_Architecture_UTF8_BOM.txt` — dApp integration principles and pre-deployment considerations
+The test suite covers metadata, supply, allocation, transfers, allowances, holder burns, authorized and unauthorized `burnFrom`, EIP-2612 permits, replay and expiry rejection, EIP-712 domain data, and the absence of privileged functions.
 
-## Items to Complete Before Deployment
+Passing local checks and explorer verification are not substitutes for an independent security audit. Never share keys, seed phrases, keystore passwords, or secret screenshots.
 
-- Confirm the wallet receiving the initial supply
-- Define migration and distribution criteria for existing EMA holders
-- Decide whether any fixed restrictions belong in the base token or the dApp layer
-- Determine whether `ERC20Votes` is required
-- Test on Arbitrum Sepolia
-- Complete an independent security audit
-- Publish the official deployment address
-
-## Important Notices
-
-- The code is unaudited and undeployed.
-- The reference address belongs to the existing EMA contract and is not the deployment address of this draft.
-- This repository is not an offer to sell tokens, an investment solicitation, or a promise of profit or price appreciation.
-- Before connecting a wallet or transferring tokens, verify the network and contract address through future official announcements.
-- Specifications may change following testing, auditing, or legal review.
-
-© 0628DAO. Development record for technical review.
+© AssetDeploy LLC. MIT License applies to the DATCORE-derived implementation.
