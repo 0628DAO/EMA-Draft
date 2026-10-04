@@ -7,6 +7,29 @@
 EMA CORE is a fixed-supply, zero-tax ERC-20 core token developed by AssetDeploy LLC for the 0628DAO ecosystem and future autonomous AI-agent use.
 
 
+## ThreeCore direction — EMA
+
+EMA is the practicality- and sustainability-focused identity within ThreeCore.
+The six-minute film illustrates decentralized prediction markets; the separate
+120-second wallet special introduces one dedicated wallet per agent, backend
+signing within authorized limits, settlement accounting and own-token buyback
+and burn.
+
+Dedicated-wallet coding is underway; the films do not establish a released
+wallet, completed prediction-market integration or realized profits. Agent
+decisions, trading, buybacks and liquidity operations require separate software.
+x402 is not a prerequisite.
+
+EMAは現実性・継続可能性重視。専用ウォレットは開発中で、
+各自が分析・判断・実行し、実現収益を自トークンのBuyback & Burnへ
+つなげる方向です。動画は完成済み機能や運用実績の証明ではありません。
+
+Despite this repository's `-Draft` name, `contracts/EMACore.sol` is the
+current token implementation described below. Root-level draft files are
+historical references.
+
+See [ThreeCore direction, wallet workflow and implementation boundaries](https://github.com/0628DAO/0628DAO-Protocol/blob/main/docs/THREECORE.md).
+
 ## Mainnet deployment
 
 
