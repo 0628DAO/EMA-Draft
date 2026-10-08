@@ -9,26 +9,52 @@ EMA CORE is a fixed-supply, zero-tax ERC-20 core token developed by AssetDeploy 
 
 ## ThreeCore direction — EMA
 
-EMA is the practicality- and sustainability-focused identity within ThreeCore.
-The six-minute film illustrates decentralized prediction markets; the separate
-120-second wallet special introduces one dedicated wallet per agent, backend
-signing within authorized limits, settlement accounting and own-token buyback
-and burn.
+### EMA AI-agent system definition
 
-Dedicated-wallet coding is underway; the films do not establish a released
-wallet, completed prediction-market integration or realized profits. Agent
-decisions, trading, buybacks and liquidity operations require separate software.
-x402 is not a prerequisite.
+The development goal is a system in which the EMA AI agent uses external
+dApps within predefined funding, permission and operating-policy limits,
+records realized profits and losses, and uses eligible realized earnings to
+buy back and burn EMA under specified conditions. Fund movements and execution
+results are to be published with supporting records so that third parties can
+verify them.
 
-EMAは現実性・継続可能性重視。専用ウォレットは開発中で、
-各自が分析・判断・実行し、実現収益を自トークンのBuyback & Burnへ
-つなげる方向です。動画は完成済み機能や運用実績の証明ではありません。
+**Operating policy:** EMA focuses on practicality and sustainability. This is a decision-making
+orientation, not a promise of returns or a fixed execution strategy.
+
+**Shared design, independent resources:** EMA is intended to use the common
+ThreeCore system design while keeping its funds, permissions and accounting
+separate from the other two tokens. Each agent analyzes, decides and executes
+for its own token. Direct dividends to holders are not part of this design.
+
+**Design items still to be specified:** wallet count and structure, supported
+dApps, funding and transaction limits, profit-allocation ratios, decision and
+settlement rules, profit-calculation methods, and failure/recovery behavior.
+No wallet count or allocation percentage is fixed by this definition.
+
+**Development status:** this section defines the target agent/dApp system.
+The base ERC-20 token's deployment status is documented separately below.
+Token deployment and promotional films do not establish that autonomous dApp
+execution, profit accounting or automated buyback and burn are complete or
+running in production. Implementation, testing and operational evidence must
+be published separately. x402 is not a prerequisite.
+
+### 日本語：EMAの定義と基本方針
+
+EMA AIエージェントが、事前に定めた資金・権限・運用方針の範囲で外部dAppを利用し、
+確定した損益を記録し、所定の条件を満たした実現収益からEMAの買戻しとBurnを実行する。
+その資金移動と実行結果を根拠となる記録とともに公開し、第三者が検証できるシステムを目指します。
+
+- **運用方針：** 現実性・継続可能性重視。利益を保証する表現や、確定した運用戦略ではありません。
+- **共通設計と独立性：** ThreeCore共通の設計を採用し、資金・権限・会計は他の2トークンから独立させます。各AIが自ら分析・判断・実行します。
+- **価値還元：** 自トークンのBuyback & Burnを想定し、ホルダーへの直接配当は想定しません。
+- **未確定の設計項目：** ウォレット数・構成、利用dApp、金額上限、利益配分率、判断・決済条件、利益計算、失敗時の処理・復旧方法です。
+- **開発状況：** これは開発するシステムの定義です。基本トークンの配備と、自律運用システムの実装・検証・本番稼働は別に示します。
 
 Despite this repository's `-Draft` name, `contracts/EMACore.sol` is the
 current token implementation described below. Root-level draft files are
 historical references.
 
-See [ThreeCore direction, wallet workflow and implementation boundaries](https://github.com/0628DAO/0628DAO-Protocol/blob/main/docs/THREECORE.md).
+See [ThreeCore shared definition, wallet workflow and implementation boundaries](https://github.com/0628DAO/0628DAO-Protocol/blob/main/docs/THREECORE.md).
 
 ## Mainnet deployment
 
