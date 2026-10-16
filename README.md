@@ -7,6 +7,33 @@
 EMA CORE is a fixed-supply, zero-tax ERC-20 core token developed by AssetDeploy LLC for the 0628DAO ecosystem and future autonomous AI-agent use.
 
 
+## Official dApp publication target
+
+**[https://emacore.fun](https://emacore.fun)** is the official planned public
+implementation and release destination for the EMA dApp, confirmed by the
+maintainer on 2026-10-16. The application is intended to connect to EMA's
+own backend execution and accounting under the shared ThreeCore design.
+This is a release destination, not a claim that live autonomous execution is
+already available. Signing secrets must remain outside the public website.
+
+**日本語：** EMAのdAppは **https://emacore.fun** で公開実装します。
+各サイトと専用バックエンドを対応づけ、資金・権限・会計は他の2者から独立させます。
+公開先の指定と、自律運用の本番稼働状況は分けて示します。
+
+## Shared implementation progress — 2026-10-16
+
+[ThreeCore shared runtime](https://github.com/0628DAO/0628DAO-Protocol/tree/main/threecore)
+now includes offline simulations for isolated balances, position/exposure limits,
+reserve protection, pause, fee-aware realized P&L, loss carryforward, own-token
+buyback/burn, duplicate rejection and event replay. All three agent lifecycles
+are covered by automated tests. A separate Base token preflight is read-only.
+
+**Implemented and tested as a simulation; not a released wallet or live dApp
+execution service.** Example limits and ratios are test fixtures. See the
+[validation record](https://github.com/0628DAO/0628DAO-Protocol/blob/main/threecore/VALIDATION.md)
+and [remaining release requirements](https://github.com/0628DAO/0628DAO-Protocol/blob/main/docs/THREECORE_RELEASE.md).
+The deployed ERC-20 contract is unchanged.
+
 ## ThreeCore direction — EMA
 
 ### EMA AI-agent system definition
