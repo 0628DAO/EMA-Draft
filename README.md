@@ -20,6 +20,33 @@ already available. Signing secrets must remain outside the public website.
 各サイトと専用バックエンドを対応づけ、資金・権限・会計は他の2者から独立させます。
 公開先の指定と、自律運用の本番稼働状況は分けて示します。
 
+## Testnet dApp implementation progress — 2026-10-16
+
+The [testnet training dApp implementation](https://github.com/0628DAO/0628DAO-Protocol/tree/bbe018a292aef291b932246a148414805a04075a/threecore/testnet)
+now provides independent agent/game contracts, freely minted per-agent training
+credits, wallet-connected frontend bundles, on-chain game settlement, credit P&L,
+eligible training-credit burns and Base Sepolia deployment/exercise scripts.
+The three intended publication sites remain datcore.fun, emacore.fun and cawelon.fun.
+
+**Verified locally:** ten training-contract tests passed, alongside nineteen
+shared simulation tests and fifteen existing game tests. Each of the three UI
+controllers completed creation, play, result display and credit burn against a
+local EVM with a stub DOM. This is not browser rendering QA.
+
+**Public Base Sepolia deployment: not yet performed.** RPC connectivity is checked,
+but a dedicated signing wallet and test ETH are not configured in the development
+environment. No official website has been updated by this implementation.
+The game is an arithmetic training harness using rule-based answers and valueless
+test credits. AI models, external revenue games and actual own-token DEX buyback
+remain separate development work. See the
+[validation record](https://github.com/0628DAO/0628DAO-Protocol/blob/bbe018a292aef291b932246a148414805a04075a/threecore/testnet/VALIDATION.md).
+Code is in [PR #3](https://github.com/0628DAO/0628DAO-Protocol/pull/3), pending merge.
+
+**日本語：** 3つのdAppそれぞれのテスト用ゲーム契約・操作画面・配備スクリプトを
+実装しました。ローカルEVMで作成→プレイ→結果・損益記録→テスト利益のBurnを
+検証済みです。公開テストネットへの配備、公式サイトへの反映、外部の収益ゲームや
+AIモデルへの接続はまだ完了していません。
+
 ## Shared implementation progress — 2026-10-16
 
 The implementation is published for review in [Protocol PR #3](https://github.com/0628DAO/0628DAO-Protocol/pull/3); it has not yet been merged into the default branch.
