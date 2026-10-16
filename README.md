@@ -22,7 +22,9 @@ already available. Signing secrets must remain outside the public website.
 
 ## Shared implementation progress — 2026-10-16
 
-[ThreeCore shared runtime](https://github.com/0628DAO/0628DAO-Protocol/tree/main/threecore)
+The implementation is published for review in [Protocol PR #3](https://github.com/0628DAO/0628DAO-Protocol/pull/3); it has not yet been merged into the default branch.
+
+[ThreeCore shared runtime](https://github.com/0628DAO/0628DAO-Protocol/tree/e5002f79e0397b6b0edc78ded015838035260145/threecore)
 now includes offline simulations for isolated balances, position/exposure limits,
 reserve protection, pause, fee-aware realized P&L, loss carryforward, own-token
 buyback/burn, duplicate rejection and event replay. All three agent lifecycles
@@ -30,8 +32,8 @@ are covered by automated tests. A separate Base token preflight is read-only.
 
 **Implemented and tested as a simulation; not a released wallet or live dApp
 execution service.** Example limits and ratios are test fixtures. See the
-[validation record](https://github.com/0628DAO/0628DAO-Protocol/blob/main/threecore/VALIDATION.md)
-and [remaining release requirements](https://github.com/0628DAO/0628DAO-Protocol/blob/main/docs/THREECORE_RELEASE.md).
+[validation record](https://github.com/0628DAO/0628DAO-Protocol/blob/e5002f79e0397b6b0edc78ded015838035260145/threecore/VALIDATION.md)
+and [remaining release requirements](https://github.com/0628DAO/0628DAO-Protocol/blob/e5002f79e0397b6b0edc78ded015838035260145/docs/THREECORE_RELEASE.md).
 The deployed ERC-20 contract is unchanged.
 
 ## ThreeCore direction — EMA
