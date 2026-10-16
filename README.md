@@ -36,12 +36,71 @@ execution service.** Example limits and ratios are test fixtures. See the
 and [remaining release requirements](https://github.com/0628DAO/0628DAO-Protocol/blob/e5002f79e0397b6b0edc78ded015838035260145/docs/THREECORE_RELEASE.md).
 The deployed ERC-20 contract is unchanged.
 
+## Future focus: agents that play decentralized dApp games
+
+**Direction set by founder Masashi Kuroda on 2026-10-16.** The future focus of
+DATCORE, EMA CORE and CAWELON CORE is to specialize in decentralized dApp games.
+Each token's associated AI agent is intended to analyze game conditions, choose
+strategies and play permitted games within its own funding and authorization
+limits, with the aim of earning revenue through gameplay. The agents are active
+players; the ERC-20 tokens themselves do not run AI or play games.
+
+The plan is to record gameplay outcomes, rewards, losses and operating costs,
+then use eligible realized net earnings for the corresponding token's buyback
+and burn under the approved policy. Token rewards alone are not proof of net
+profit. Funds, permissions and accounting remain independent across the three
+agents; direct dividends to holders are not part of this design.
+
+**Looking toward AGI:** the founder anticipates that AI agents may develop toward
+more general, AGI-level capabilities. The design aims to allow the decision
+component to be replaced as capabilities improve, while retaining independent
+authorization, spending limits and verifiable records. This is a forward-looking
+design premise, not a claim that AGI is available, that the current agents will
+automatically become AGI, or that a development date or profitable outcome is
+guaranteed. Initial development does not depend on AGI becoming available.
+
+**Relationship to CAW:** the founder sees potential affinity between ThreeCore's
+game-playing agents and a future decentralized gaming ecosystem built around
+CAW. The published [CAW manifesto](https://github.com/cawdevelopment/manifesto)
+primarily specifies decentralized social communication, identity and value
+transfer. The gaming connection described here is the founder's strategic
+outlook, not a verified CAW-wide gaming roadmap, partnership or implemented
+integration. The separate 0628DAO CAW game module is development work, not proof
+of a live upstream CAW gaming platform.
+
+This gaming specialization is the current intended application focus. Earlier
+film examples of betting, prediction and trading are illustrations, not a fixed
+production game list. Selection must establish that agent play is permitted and
+that rewards, costs and settlement can be verified. Current published simulation
+code does not yet implement a live game-playing agent.
+
+### 日本語：dAppゲームへの特化とAGIを見据えた将来像
+
+司令塔・黒田昌資の方針として、DATCORE・EMA CORE・CAWELON COREの将来は、
+**分散型dAppゲームに特化し、各トークンに対応するAIエージェント自身が
+分析・判断・プレイを行い、収益獲得を目指す**方向で開発します。
+トークン自体がゲームを動かすという意味ではありません。
+
+ゲーム報酬、損失、参加費、ガス代等の運用費用を記録し、所定の条件を満たす
+実現純利益を自トークンのBuyback & Burnにつなげる構想です。
+3者の資金・権限・会計は独立させ、ホルダーへの直接配当は想定しません。
+
+司令塔はAIエージェントが将来AGIエージェントへ発展する可能性を見据えています。
+その進歩を取り込めるよう判断部分を差し替え可能な構成を目指し、権限管理・
+資金上限・検証可能な記録を維持します。AGIの実現時期や自動的な移行、
+利益の保証を意味せず、現段階の開発はAGIの登場を待たずに進めます。
+
+CAWを基盤とする分散型ゲームへの将来的な発展と、ThreeCoreとの親和性を
+司令塔は見込んでいます。ただし、確認できたCAW原典は分散型SNSが中心です。
+ここでは司令塔の将来展望として述べ、CAW全体の確定済みロードマップ、
+公式提携、接続実装済みとは表現しません。
+
 ## ThreeCore direction — EMA
 
 ### EMA AI-agent system definition
 
-The development goal is a system in which the EMA AI agent uses external
-dApps within predefined funding, permission and operating-policy limits,
+The development goal is a system in which the EMA AI agent specializes in
+playing decentralized dApp games within predefined funding, permission and operating-policy limits,
 records realized profits and losses, and uses eligible realized earnings to
 buy back and burn EMA under specified conditions. Fund movements and execution
 results are to be published with supporting records so that third parties can
@@ -69,7 +128,7 @@ be published separately. x402 is not a prerequisite.
 
 ### 日本語：EMAの定義と基本方針
 
-EMA AIエージェントが、事前に定めた資金・権限・運用方針の範囲で外部dAppを利用し、
+EMA AIエージェントが、分散型dAppゲームに特化し、事前に定めた資金・権限・運用方針の範囲でプレイし、
 確定した損益を記録し、所定の条件を満たした実現収益からEMAの買戻しとBurnを実行する。
 その資金移動と実行結果を根拠となる記録とともに公開し、第三者が検証できるシステムを目指します。
 
