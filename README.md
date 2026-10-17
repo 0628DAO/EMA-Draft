@@ -7,45 +7,116 @@
 EMA CORE is a fixed-supply, zero-tax ERC-20 core token developed by AssetDeploy LLC for the 0628DAO ecosystem and future autonomous AI-agent use.
 
 
-## Official dApp publication target
+## Public training dApp — Base Sepolia
 
-**[https://emacore.fun](https://emacore.fun)** is the official planned public
-implementation and release destination for the EMA dApp, confirmed by the
-maintainer on 2026-10-16. The application is intended to connect to EMA's
-own backend execution and accounting under the shared ThreeCore design.
-This is a release destination, not a claim that live autonomous execution is
-already available. Signing secrets must remain outside the public website.
+**Live training dApp: [https://emacore.fun/testnet/](https://emacore.fun/testnet/).**
+The EMA arithmetic-training dApp is published on Base Sepolia (chain ID `84532`).
+The DAT, EMA and CAWELON applications share an implementation while using separate
+agent, game and training-credit contracts. This training release is distinct from
+the existing Base Mainnet ERC-20 token and does not alter that token's contracts.
+Signing secrets must remain outside the public website.
 
-**日本語：** EMAのdAppは **https://emacore.fun** で公開実装します。
-各サイトと専用バックエンドを対応づけ、資金・権限・会計は他の2者から独立させます。
-公開先の指定と、自律運用の本番稼働状況は分けて示します。
+**日本語：** EMAのトレーニング用dAppを **https://emacore.fun/testnet/** で公開しました。
+Base Sepolia上の配備とプレイ・テスト利益分のBurnを検証済みです。
+3者のエージェント・ゲーム・テストクレジットは独立しています。
+既存のBase Mainnetトークンとは別のテスト用システムです。
 
-## Testnet dApp implementation progress — 2026-10-16
+## Testnet deployment and verification — update 2026-10-17
 
-The [testnet training dApp implementation](https://github.com/0628DAO/0628DAO-Protocol/tree/bbe018a292aef291b932246a148414805a04075a/threecore/testnet)
-now provides independent agent/game contracts, freely minted per-agent training
-credits, wallet-connected frontend bundles, on-chain game settlement, credit P&L,
-eligible training-credit burns and Base Sepolia deployment/exercise scripts.
-The three intended publication sites remain datcore.fun, emacore.fun and cawelon.fun.
+**Public Base Sepolia deployment and website publication are complete.**
+All three agent contracts completed a positive arithmetic-training play followed
+by a burn of `0.5` eligible training credits. At verification, each started with
+`100` credits, reached `101` after play and held `100.5` after the burn.
+Cumulative gameplay P&L was `1` credit and the recorded profit burn was `0.5`.
+These are test-credit accounting results, not financial returns; ETH gas fees are separate.
 
-**Verified locally:** ten training-contract tests passed, alongside nineteen
-shared simulation tests and fifteen existing game tests. Each of the three UI
-controllers completed creation, play, result display and credit burn against a
-local EVM with a stub DOM. This is not browser rendering QA.
+### EMA training contracts and transaction evidence
 
-**Public Base Sepolia deployment: not yet performed.** RPC connectivity is checked,
-but a dedicated signing wallet and test ETH are not configured in the development
-environment. No official website has been updated by this implementation.
-The game is an arithmetic training harness using rule-based answers and valueless
-test credits. AI models, external revenue games and actual own-token DEX buyback
-remain separate development work. See the
-[validation record](https://github.com/0628DAO/0628DAO-Protocol/blob/bbe018a292aef291b932246a148414805a04075a/threecore/testnet/VALIDATION.md).
-Code is in [PR #3](https://github.com/0628DAO/0628DAO-Protocol/pull/3), pending merge.
+| Component | Base Sepolia address |
+|---|---|
+| Factory | [`0x9A131ae8d1Bb0d37a22203B6db75d8335B3Ec2e4`](https://sepolia.basescan.org/address/0x9A131ae8d1Bb0d37a22203B6db75d8335B3Ec2e4) |
+| Agent | [`0x87746c7D55F7935111B82d354e9787DDb6AEf53A`](https://sepolia.basescan.org/address/0x87746c7D55F7935111B82d354e9787DDb6AEf53A) |
+| Game | [`0x3E9150Ab5e20e8525F6aD935fC090fc33bF9F37f`](https://sepolia.basescan.org/address/0x3E9150Ab5e20e8525F6aD935fC090fc33bF9F37f) |
+| Credit | [`0x1b7535586908a38Aa24A657BE643D4DF6f9c0419`](https://sepolia.basescan.org/address/0x1b7535586908a38Aa24A657BE643D4DF6f9c0419) |
 
-**日本語：** 3つのdAppそれぞれのテスト用ゲーム契約・操作画面・配備スクリプトを
-実装しました。ローカルEVMで作成→プレイ→結果・損益記録→テスト利益のBurnを
-検証済みです。公開テストネットへの配備、公式サイトへの反映、外部の収益ゲームや
-AIモデルへの接続はまだ完了していません。
+- training-play: [0xb22ecb5fc0fee55cd4fd91f5a844e8ea6897ff57c5783ab2a4bcc52128d2022c](https://sepolia.basescan.org/tx/0xb22ecb5fc0fee55cd4fd91f5a844e8ea6897ff57c5783ab2a4bcc52128d2022c)
+- training-credit-burn: [0x4f4706e2dd8474bc7c60bb2d04795a97e6db9f706236cf03f761351efe1c1048](https://sepolia.basescan.org/tx/0x4f4706e2dd8474bc7c60bb2d04795a97e6db9f706236cf03f761351efe1c1048)
+
+- [Public deployment record and all three agents' transaction evidence](https://github.com/0628DAO/0628DAO-Protocol/blob/8bed37a842c6e5a3e462441076a3c5fd5e5b5898/threecore/testnet/deployments/base-sepolia.json)
+- [Verified implementation source](https://github.com/0628DAO/0628DAO-Protocol/tree/8bed37a842c6e5a3e462441076a3c5fd5e5b5898/threecore/testnet)
+- [Development PR #3](https://github.com/0628DAO/0628DAO-Protocol/pull/3) — open at this documentation update; publication does not imply the PR is merged.
+
+Release verification checks chain `84532`, the compiled factory bytecode,
+independent owner/agent/game/credit bindings, successful canonical receipts,
+used commands and matching gameplay/burn events. The implementation passed
+15 existing game tests, 19 simulation tests and 10 training-contract tests,
+plus three local UI-controller lifecycles and failure/recovery checks.
+Compile, lint, audit and GitHub CI passed at the recorded implementation revision.
+
+### Public-origin wallet checks and foundation update — 2026-10-17
+
+The published frontend now displays on-chain owner/operator permissions, the
+per-action stake limit and reserve, profit eligible for credit burns, owner
+pause/resume controls, scoped local transaction history, JSON export and
+read-only receipt reconciliation without automatic resubmission.
+
+**Verified from the public HTTPS origins in Chrome with MetaMask:** DAT, EMA
+and CAWELON each completed pause, resume, a correct answer, an intentionally
+incorrect answer and a burn of `0.5` valueless training credits: 15 confirmed
+transactions in total. Pausing disabled gameplay; resuming restored it.
+The sequence for each began at `100.5` credits, reached `101.5` after a correct
+answer, returned to `100.5` after the incorrect answer and finished at `100.0`
+after the burn. Cumulative gameplay P&L and total historical profit burns were
+both `1.0`; eligible unburned profit was `0.0`, and another burn was disabled.
+These credit figures exclude Base Sepolia ETH gas costs.
+
+The existing policy reads `10` credits per action and a `5` credit reserve.
+Stop/resume history persisted after page reload and reconnection. Each site's
+downloaded JSON was checked to contain its own five confirmed records on chain
+`84532`. Reconciliation with no pending records did not display a new transaction;
+this is not a test of every pending/replacement/reorganization failure scenario.
+
+| EMA public-origin operation | Base Sepolia transaction |
+|---|---|
+| Pause | [0x5fc2a28e09c6f83453eabe6cfaef5216137d29cdf9ec8b5aa8fd515565d6616e](https://sepolia.basescan.org/tx/0x5fc2a28e09c6f83453eabe6cfaef5216137d29cdf9ec8b5aa8fd515565d6616e) |
+| Resume | [0xc5edf09e643d82faf2bca36cac284f68d955ab916da2d56e3778eb0c3b7fffda](https://sepolia.basescan.org/tx/0xc5edf09e643d82faf2bca36cac284f68d955ab916da2d56e3778eb0c3b7fffda) |
+| Correct training answer | [0xd53858c40857cea522499c23bb74e38629e3776364dda2f28a2a7969976b9a67](https://sepolia.basescan.org/tx/0xd53858c40857cea522499c23bb74e38629e3776364dda2f28a2a7969976b9a67) |
+| Incorrect training answer | [0x40a2c1fecdef1088d2be9944f03b6ea15e0623652b268b2908d27393cd1d9d26](https://sepolia.basescan.org/tx/0x40a2c1fecdef1088d2be9944f03b6ea15e0623652b268b2908d27393cd1d9d26) |
+| Burn 0.5 training credits | [0x0959e12c00d9995b6388c28fa3ae270e10540f0cf920d23c4ddffd6ae934006d](https://sepolia.basescan.org/tx/0x0959e12c00d9995b6388c28fa3ae270e10540f0cf920d23c4ddffd6ae934006d) |
+
+**Remaining boundaries:** separate-operator delegation has not been performed;
+the owner and operator remain the same account. Storage is browser/origin-local,
+not a durable shared database. This is not an independent security audit.
+The foundation frontend was built locally from commit
+`ee21f1cf7d65a78c7872a6d6ce8e015d52c37eab` and published to the three websites;
+that local foundation source revision has not yet been pushed to GitHub. The
+linked older implementation is the public deployment baseline, not the complete
+new frontend. Local validation of the foundation passed 15 existing game tests,
+24 shared runtime/history/policy tests and 10 training-contract tests (49 total),
+plus three local-EVM UI-controller lifecycles. This does not claim a new GitHub CI
+run for the unpublished foundation source or a measured “70% complete” service.
+
+**Current scope:** deterministic arithmetic training with freely minted credits
+that have no monetary value. A compatible wallet and Base Sepolia test ETH are
+needed for gas. AI models, external revenue games, real-token DEX buybacks and
+production autonomous execution are not integrated. This is not a mainnet dApp
+launch, an independent security audit or a promise of earnings.
+
+**日本語：** 公開テストネットへの配備と3つの公式サイトの`/testnet/`公開は完了しました。
+各エージェントのプレイと0.5テストクレジットの利益分Burnを確認し、契約と取引記録を公開しています。
+公開URLからMetaMaskで停止・再開・正解・不正解・Burnを各3サイトで検証し、計15取引の確定を確認しました。
+履歴の再読み込みと各5件のJSON保存も確認済みです。別の操作担当者への権限付与は未実施です。
+金銭価値のない算術トレーニング用クレジットを使います。AIモデル・外部収益ゲーム・
+実トークンの買戻しは未接続で、収益や本番稼働を示すものではありません。
+
+## Launch article and character short
+
+- [ThreeCore testnet launch article on Medium](https://medium.com/@datcoreofficial/threecore-testnet-is-live-dat-ema-and-cawelon-on-base-sepolia-fa741efaf0a4)
+- [EMA character short on Facebook](https://www.facebook.com/reel/939908805551592/)
+- [EMA character short on TikTok](https://www.tiktok.com/@threecore2026/video/7697456272811117840)
+
+The character short uses AI-generated artwork and synthetic English narration.
+YouTube publication is pending the channel upload limit; no YouTube release is claimed here.
 
 ## Shared implementation progress — 2026-10-16
 
@@ -57,8 +128,9 @@ reserve protection, pause, fee-aware realized P&L, loss carryforward, own-token
 buyback/burn, duplicate rejection and event replay. All three agent lifecycles
 are covered by automated tests. A separate Base token preflight is read-only.
 
-**Implemented and tested as a simulation; not a released wallet or live dApp
-execution service.** Example limits and ratios are test fixtures. See the
+**The financial runtime described in this section remains a simulation.**
+The separately published arithmetic-training dApp is documented above; it is not
+a production autonomous execution service. Example limits and ratios are test fixtures. See the
 [validation record](https://github.com/0628DAO/0628DAO-Protocol/blob/e5002f79e0397b6b0edc78ded015838035260145/threecore/VALIDATION.md)
 and [remaining release requirements](https://github.com/0628DAO/0628DAO-Protocol/blob/e5002f79e0397b6b0edc78ded015838035260145/docs/THREECORE_RELEASE.md).
 The deployed ERC-20 contract is unchanged.
